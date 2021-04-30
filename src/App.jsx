@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import SettingsBar from "./components/SettingsBar"
 import InputText from "./components/InputText"
 import CopyButton from "./components/CopyButton"
+import Footer from "./components/Footer"
 
 import TransformationTypes from "./transformationTypes"
 
@@ -37,7 +38,7 @@ const App = () => {
     ? { direction: "rtl", fontFamily: "SBL BibLit", fontSize: "1.875rem", lineHeight: "2.25rem" }
     : { fontSize: "1.5rem", lineHeight: "2rem" }
 
-  return <div className="flex flex-col">
+  return <div className="flex flex-col min-h-screen">
     <Header />
     <div className="flex flex-col m-4 rounded shadow-lg bg-gray-100 md:mx-8 lg:mx-16">
       <SettingsBar
@@ -65,6 +66,8 @@ const App = () => {
         </div>
       </div>
     </div>
+    <div className="flex-auto" />
+    <Footer />
   </div>
 }
 export default App

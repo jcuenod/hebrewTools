@@ -4,6 +4,7 @@ import Header from "./components/Header.js";
 import SettingsBar from "./components/SettingsBar.js";
 import InputText from "./components/InputText.js";
 import CopyButton from "./components/CopyButton.js";
+import Footer from "./components/Footer.js";
 import TransformationTypes from "./transformationTypes.js";
 const getOutputValue = ({text, transformationType, handleQametzQatan}) => {
   switch (transformationType) {
@@ -31,7 +32,7 @@ const App = () => {
   const output = getOutputValue({text: textState, transformationType, handleQametzQatan});
   const outputStyles = transformationType !== TransformationTypes.TRANSLITERATE ? {direction: "rtl", fontFamily: "SBL BibLit", fontSize: "1.875rem", lineHeight: "2.25rem"} : {fontSize: "1.5rem", lineHeight: "2rem"};
   return /* @__PURE__ */ React.createElement("div", {
-    className: "flex flex-col"
+    className: "flex flex-col min-h-screen"
   }, /* @__PURE__ */ React.createElement(Header, null), /* @__PURE__ */ React.createElement("div", {
     className: "flex flex-col m-4 rounded shadow-lg bg-gray-100 md:mx-8 lg:mx-16"
   }, /* @__PURE__ */ React.createElement(SettingsBar, {
@@ -59,6 +60,8 @@ const App = () => {
     onClick: () => {
       navigator.clipboard.writeText(output);
     }
-  }))))));
+  }))))), /* @__PURE__ */ React.createElement("div", {
+    className: "flex-auto"
+  }), /* @__PURE__ */ React.createElement(Footer, null));
 };
 export default App;
